@@ -1,0 +1,13 @@
+
+.my-title {
+    /* height: 70px; */
+    padding-top: 25px;
+    padding-bottom: 30px;
+}
+
+.my-result {
+    padding: 10px;
+    background-color: ghostwhite;
+    border: 1px solid darkgray;
+    height: 200px;
+}
