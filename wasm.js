@@ -1,8 +1,15 @@
-import init, {greet} from "./math/pkg/math.js"
+import init, {calculator} from "./math/pkg/math.js"
 
 async function run (){
     await init();
-    greet();
+
+    $(document).ready( () => {
+        $("#btn-calc").click( () => {
+            var expression = $("#tb-input").val();
+            var number = calculator(expression, "");
+            $("#tb-result").append(">>" + expression + " = " + number + "<br />");
+        })
+    });
 }
 
 run()

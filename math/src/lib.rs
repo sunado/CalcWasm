@@ -1,8 +1,7 @@
 mod utils;
-mod js;
-mod math;
 
 use wasm_bindgen::prelude::*;
+use asciimath::{eval, scope};
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
 // allocator.
@@ -16,6 +15,46 @@ extern {
 }
 
 #[wasm_bindgen]
-pub fn greet() {
-    alert("Hello, math!");
+extern "C" {
+    // Use `js_namespace` here to bind `console.log(..)` instead of just
+    // `log(..)`
+    #[wasm_bindgen(js_namespace = console)]
+    fn log(s: &str);
+
+    // The `console.log` is quite polymorphic, so we can bind it with multiple
+    // signatures. Note that we need to use `js_name` to ensure we always call
+    // `log` in JS.
+    #[wasm_bindgen(js_namespace = console, js_name = log)]
+    fn log_u32(a: u32);
+
+    // Multiple arguments too!
+    #[wasm_bindgen(js_namespace = console, js_name = log)]
+    fn log_many(a: &str, b: &str);
+}
+
+#[macro_use]
+macro_rules! console_log {
+    ($($t:tt)*) => (log(&format_args!($($t)*).to_string()))
+}
+
+// #[derive(Serialize, Deserialize)]
+// pub struct Variable {
+//     name: String,
+//     value: f64,
+// }
+
+#[wasm_bindgen]
+pub fn calculator(expression: &str, variables: &JsValue) -> f64 {
+    console_error_panic_hook::set_once();
+    //let elements: Vec<Element> = variables.into_serde().unwrap();
+
+    let sc = scope! {};
+    let exp = expression.clone();
+    //console_log!("exp: {}", exp);
+    let res = eval(exp, &sc);
+    let mut r:f64 = 0.0;
+    if res.is_ok() {
+        r = res.unwrap();
+    }
+    r
 }

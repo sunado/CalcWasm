@@ -10,4 +10,6 @@
     background-color: ghostwhite;
     border: 1px solid darkgray;
     height: 200px;
+    /* overflow: hidden; */
+    overflow: scroll;
 }
