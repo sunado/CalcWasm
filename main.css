@@ -6,10 +6,15 @@
 }
 
 .my-result {
-    padding: 10px;
+    margin: 10px;
     background-color: ghostwhite;
     border: 1px solid darkgray;
     height: 200px;
     /* overflow: hidden; */
     overflow: scroll;
+}
+
+.page-footer {
+    margin-top: 25px;
+    background-color: whitesmoke;
 }

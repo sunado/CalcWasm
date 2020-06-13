@@ -1,5 +1,6 @@
 mod utils;
 
+use std::i64;
 use wasm_bindgen::prelude::*;
 use asciimath::{eval, scope};
 
@@ -57,4 +58,20 @@ pub fn calculator(expression: &str, variables: &JsValue) -> f64 {
         r = res.unwrap();
     }
     r
+}
+
+#[wasm_bindgen]
+pub fn hex_to_dec(hex_str: &str) -> i64 {
+    let res = i64::from_str_radix(hex_str, 16);
+    let mut r:i64 = 0;
+    if res.is_ok() {
+        r = res.unwrap();
+    }
+    r
+}
+
+#[wasm_bindgen]
+pub fn dec_to_hex(dec: u64) -> String {
+    let res = format!("{:X}", dec);
+    res.into()
 }
