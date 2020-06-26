@@ -75,3 +75,19 @@ pub fn dec_to_hex(dec: u64) -> String {
     let res = format!("{:X}", dec);
     res.into()
 }
+
+#[wasm_bindgen]
+pub fn dec_to_bin(bin: u64) -> String {
+    let res = format!("{:b}", bin);
+    res.into()
+}
+
+#[wasm_bindgen]
+pub fn bin_to_dec(bin_str: &str) -> i64 {
+    let res = i64::from_str_radix(bin_str, 2);
+    let mut r:i64 = 0;
+    if res.is_ok() {
+        r = res.unwrap();
+    }
+    r
+}
