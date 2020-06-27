@@ -15,7 +15,7 @@ deploy:
   secret_access_key:
     secure: XYCQ1nkPBqQrxa2ZCxNTloNjX+srb0EadhiBs/O9hYjoA03+lZl0J1p7ETymx7DqDEuFLlDxY11joTe1j2dpH8DRzstmWpBceAygMTxn2tdv7Lrx/Bny370WIlkRQsLkfUxLBXn4YG73V+CvbIu74uWyICVl0FPP9kAUaUUBo5dYHg5S76IMC2ileKzpayzXdOX8c1IPq6GZB7K+8TQVAlk9hf3Z4Vo8YZXeElCZxpjVnvxA45Th4Ksy38pbJvlsve+QxC3DhiuWnsmSNb17xuXgYO9ce1JLNaMUT3Fr+pgWvUXEGGFfPK9tDHUxffY4wW3/SxxBzsqCYvBBdTNtBO1eNvOxxEwKAh6XsyAEhbsVwrzHNs2YVMmrMoNE7YwFOG6+1QDtYv6Jk+myhL6UR2HNqXPN33HCcdHGflbMcu8oCkG778t8/0WzbvuoWaWLOjGdUHqKJp3LvgR86vS2V+1686XbrsbtPGDWM6fqwwAof3S5nlLkgnyFEeEPQ5pcruA4KEH6UbLNcnTl1QPbgplJO0LUWU5s1jqWrWduLgV6R4+gMnWu2jGtBd5Zwh/38dBjDOvuUt8Vg6lY6Nlrw3lWAHZZZxaNZ7XbMtRWeTpcghjlb+F25EKAg2RH22YZVSiWhR841s4yI6StZrZ7SRLkjWIJQ7fPYnHLAQRqP54=
   bucket: calc.sunado.bid
-  acl: ''
+  acl: 'public_read_write'
   on:
     repo: sunado/CalcWasm
   skip_cleanup: 'true'
