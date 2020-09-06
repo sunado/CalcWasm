@@ -1,4 +1,4 @@
-import init, {calculator, hex_to_dec, dec_to_hex, bin_to_dec, dec_to_bin} from "./math/pkg/math.js"
+import init, {calculator, hex_to_dec, dec_to_hex, bin_to_dec, dec_to_bin} from "../math/pkg/math.js"
 
 async function run (){
     await init();

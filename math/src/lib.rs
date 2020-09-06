@@ -3,6 +3,7 @@ mod utils;
 use std::i64;
 use wasm_bindgen::prelude::*;
 use asciimath::{eval, scope};
+use rand::prelude::*;
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
 // allocator.
